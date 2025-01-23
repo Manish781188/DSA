@@ -1,22 +1,25 @@
-class Solution {
-    public int kadane(int[] nums){
-     int ans=Integer.MIN_VALUE,n=nums.length,sum=0;
-        for(int i=0;i<n;i++){
-            sum+=nums[i];
-            ans=Math.max(ans,sum);
-            if(sum<0) sum=0;
+class pracatice{
+  
+    public static void main(String args[]){
+       int [] arr = {5,4,3,2,1};
+      int n = arr.length;
+         for(int i=0;i<n-1;i++){
+            int min =i;
+            for(int j = i+1;j<n;j++){
+                if(arr[j]<arr[min]){
+                    min =j;
+                }
+            }
+                  int temp =arr[i];
+                arr[i] = arr[min];
+                arr[min]=temp;
+            
+            for(int ele : arr){
+                System.out.print(ele +" ");
+            }
+            System.out.println();
+         }
+
+        
         }
-        return ans;
-    }
-    public int maxSubarraySumCircular(int[] nums) {
-        int sum=Arrays.stream(nums).sum();
-      int    ans1=kadane(nums);
-        for(int i=0;i<nums.length;i++){
-            nums[i]*=-1;
-        }
-        int ans2=kadane(nums);
-        if(ans2+sum==0) return ans1;
-        return Math.max(ans1,ans2+sum);
-       
-    }
 }

@@ -23,13 +23,12 @@ j--;
     System.out.println("Enter the value of K");
      int k = sc.nextInt();
      int i =0;
-     for(int j=k-1; j<n; j+=3){
-
-reversegroup(arr,i,j);
-i+=k;
+     for(int j=k-1; j<n; j+=k){
+       reversegroup(arr,i,j);
+       i+=k;
      }
      for(int ele : arr){
-        System.out.println(ele);
+        System.out.print(ele+" ");
      }
 }
 }
